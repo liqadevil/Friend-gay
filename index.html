@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truth Reveal</title>
+    <title>I LOVE YOU DO YOU LOVE ME ?</title>
     <style>
+        /* CSS: Styling the page to look cute and centering elements */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
         body {
@@ -12,12 +13,12 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); /* Serious/Sad gradient initially */
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); /* Gradient background */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            overflow: hidden; /* Prevents scrollbars when button moves */
             position: relative;
         }
 
@@ -26,10 +27,11 @@
             position: relative;
             width: 100%;
             max-width: 600px;
-            z-index: 10;
+            z-index: 1; /* Keep above floating hearts */
             animation: floatContainer 3s ease-in-out infinite;
         }
 
+        /* The GIF image styling */
         .gif-container img {
             width: 200px;
             height: auto;
@@ -38,10 +40,9 @@
         }
 
         h1 {
-            color: #333;
+            color: #d81b60;
             font-size: 2rem;
             margin-bottom: 30px;
-            padding: 0 20px;
         }
 
         .btn-group {
@@ -49,7 +50,7 @@
             justify-content: center;
             gap: 20px;
             position: relative;
-            height: 60px;
+            height: 60px; /* Reserve space for buttons */
         }
 
         button {
@@ -58,34 +59,39 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s;
             font-weight: 600;
-            background-color: #007bff;
+            background-color: #d81b60; /* Default pink for Next buttons */
             color: white;
         }
 
         #yes-btn {
             background-color: #4caf50; /* Green */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
         #yes-btn:hover {
             transform: scale(1.1);
+            background-color: #43a047;
         }
 
         #no-btn {
             background-color: #e53935; /* Red */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
+        /* Page Management */
         .page {
             display: none;
             animation: fadeIn 0.5s ease-in-out;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
         }
 
+        /* Show the first page initially */
         #page1 {
-            display: flex;
+            display: block;
         }
 
         @keyframes fadeIn {
@@ -93,12 +99,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes floatContainer {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .success-message h1 {
+            font-size: 2.5rem;
+            color: #d81b60;
         }
 
-        .emoji-bg {
+        /* Floating Hearts Animation */
+        .heart {
             position: absolute;
             bottom: -10vh;
             font-size: 2rem;
@@ -107,65 +114,72 @@
         @keyframes floatUp {
             to { transform: translateY(-120vh) rotate(360deg); }
         }
+
+        @keyframes floatContainer {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Page 1 -->
+        <!-- Page 1: Intro -->
         <div class="page" id="page1">
             <div class="gif-container">
-                <img src="https://media.tenor.com/F82m3bZ5hVAAAAAi/sad-bear.gif" alt="Serious">
+                <img src="https://media.tenor.com/zGm5acSj8_0AAAAi/cute-bear.gif" alt="Cute Bear Wave">
             </div>
-            <h1>We need to talk... 😔</h1>
+            <h1>To the love of my existence... ❤️</h1>
             <button onclick="nextPage('page2')">Next</button>
         </div>
 
-        <!-- Page 2 -->
+        <!-- Page 2: Sweet Message -->
         <div class="page" id="page2">
             <div class="gif-container">
-                <img src="https://media.tenor.com/04Gg65_h8DkAAAAi/cute-bear.gif" alt="Nervous">
+                <img src="https://media.tenor.com/PiFlyh89ItgAAAAi/cute-love.gif" alt="Cute Love">
             </div>
-            <h1>I've been noticing something about you lately...</h1>
-            <button onclick="nextPage('page3')">What is it?</button>
+            <h1>Every moment with you feels like a dream come true.</h1>
+            <button onclick="nextPage('page3')">Next</button>
         </div>
 
-        <!-- Page 3 -->
+        <!-- Page 3: Deeper Love -->
         <div class="page" id="page3">
             <div class="gif-container">
-                <img src="https://media.tenor.com/ERa488RkM50AAAAC/thinking-face-hmm.gif" alt="Thinking">
+                <img src="https://media.tenor.com/215Ld3q5w4EAAAAi/cat-love.gif" alt="Cat Love">
             </div>
-            <h1>It's really hard for me to ask this...</h1>
-            <button onclick="nextPage('page4')">Just ask me</button>
+            <h1>You are my happiness, my joy, and my everything.</h1>
+            <button onclick="nextPage('page4')">Next</button>
         </div>
 
-        <!-- Page 4 -->
+        <!-- Page 4: Build Up -->
         <div class="page" id="page4">
             <div class="gif-container">
-                <img src="https://media.tenor.com/yheo1GGu3FwAAAAC/rick-roll-rick-ashley.gif" alt="Suspense">
+                <img src="https://media.tenor.com/04Gg65_h8DkAAAAi/cute-bear.gif" alt="Cute Bear Shy">
             </div>
-            <h1>Promise you won't get mad?</h1>
-            <button onclick="nextPage('question-view')">I Promise</button>
+            <h1>I can't imagine a single day without you...</h1>
+            <button onclick="nextPage('question-view')">Next</button>
         </div>
 
-        <!-- Question View -->
+        <!-- Initial Question View -->
         <div class="page question-view" id="question-view">
             <div class="gif-container">
-                <img src="https://media.tenor.com/11uCj3tZgXoAAAAC/why-are-you-gay-meme.gif" alt="Question">
+                <!-- Placeholder cute bear GIF. You can replace this src with any GIF URL you like -->
+                <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Cute Bear">
             </div>
-            <h1 id="question-text">Are you Gay? 🏳️‍🌈</h1>
+            <h1 id="question-text">Will you be mine forever? ❤️</h1>
             <div class="btn-group">
                 <button id="yes-btn">Yes</button>
                 <button id="no-btn">No</button>
             </div>
         </div>
 
-        <!-- Success View -->
+        <!-- Success View (Shown after clicking Yes) -->
         <div class="page success-message" id="success-message">
             <div class="gif-container">
-                <img src="https://media.tenor.com/5aF9oxI0pWwAAAAC/laughing-laugh.gif" alt="Laughing">
+                <!-- Happy GIF -->
+                <img src="https://media.tenor.com/ivKWdfdbV3EAAAAi/goma-happy.gif" alt="Happy Bear">
             </div>
-            <h1>I KNEW IT! 🤣🤣</h1>
+            <h1>I promise to cherish you for eternity! 💖</h1>
         </div>
     </div>
 
@@ -173,69 +187,72 @@
         const yesBtn = document.getElementById('yes-btn');
         const noBtn = document.getElementById('no-btn');
 
-        // Initial serious emojis
-        let currentEmojis = ['😔', '🖤', '🌧️', '🥀', '😐'];
-
+        // Function to navigate between pages
         function nextPage(pageId) {
+            // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.style.display = 'none';
             });
-            document.getElementById(pageId).style.display = 'flex';
-
-            // Switch to funny emojis and bright background when the prank is revealed
-            if (pageId === 'question-view' || pageId === 'success-message') {
-                currentEmojis = ['🤣', '😜', '🤡', '🏳️‍🌈', '💩'];
-                document.body.style.background = 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)';
-            }
+            // Show the target page
+            document.getElementById(pageId).style.display = 'block';
         }
 
         // Function to move the No button
         function moveButton() {
+            // Get the dimensions of the browser window
             const containerRect = document.body.getBoundingClientRect();
             const btnRect = noBtn.getBoundingClientRect();
 
+            // Calculate random positions within the visible screen
+            // We subtract the button size to ensure it doesn't go off-screen
             const maxX = containerRect.width - btnRect.width;
             const maxY = containerRect.height - btnRect.height;
 
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
 
-            noBtn.style.position = 'fixed';
+            // Apply the new position
+            noBtn.style.position = 'fixed'; // Switch to fixed to move relative to viewport
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         }
 
-        // Make it run away on hover/touch
+        // Event Listeners for the "No" button
+        // 'mouseover' works for desktop cursors
         noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('touchstart', moveButton);
-
-        // Logic: If they click No, it turns into Yes
-        noBtn.addEventListener('click', () => {
-            if (noBtn.innerText === 'No') {
-                noBtn.innerText = 'Yes';
-                noBtn.style.backgroundColor = '#4caf50'; // Turn green
-            } else {
-                // If it already says Yes, treat it as a Yes click
-                nextPage('success-message');
-            }
+        
+        // 'touchstart' works for mobile devices (when they try to tap it)
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent the click
+            moveButton();
         });
 
+        // Ensure it moves if they manage to click it (e.g. on mobile)
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // Event Listener for the "Yes" button
         yesBtn.addEventListener('click', () => {
             nextPage('success-message');
         });
 
-        // Floating Emojis Logic
-        function createEmoji() {
-            const emoji = document.createElement('div');
-            emoji.classList.add('emoji-bg');
-            emoji.innerText = currentEmojis[Math.floor(Math.random() * currentEmojis.length)];
-            emoji.style.left = Math.random() * 100 + 'vw';
-            emoji.style.animationDuration = Math.random() * 3 + 2 + 's';
-            emoji.style.opacity = Math.random() * 0.5 + 0.3;
-            document.body.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 5000);
+        // Floating Hearts Logic
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5s speed
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
         }
-        setInterval(createEmoji, 500);
+        setInterval(createHeart, 400);
     </script>
+
+    <!-- Secret link to switch to the Friend Prank page -->
+    <a href="friend.html" style="position: fixed; bottom: 20px; right: 20px; text-decoration: none; color: #d81b60; font-size: 0.8rem; opacity: 0.7;">Prank a Friend 😈</a>
 </body>
 </html>
